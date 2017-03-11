@@ -54,6 +54,8 @@ async def execute(sql, args, autocommit=True):
             if not autocommit:
                 await conn.rollback()
             raise
+        finally:
+            conn.close()
         return affected
 
 def create_args_string(num):
@@ -226,5 +228,4 @@ class Model(dict, metaclass=ModelMetaclass):
         args = [self.getValue(self.__primary_key__)]
         rows = await execute(self.__delete__, args)
         if rows != 1:
-			logging.warn('failed to remove by primary key: affected rows: %s' % rows)
-			
+             logging.warn('failed to update by primary key: affected rows: %s' % rows)
