@@ -1,50 +1,50 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-'''
-Models for user, blog, comment.
-'''
-
-__author__ = 'Michael Liao'
-
-import time, uuid
-
+import time
+# uuidæ˜¯pythonä¸­ç”Ÿæˆå”¯ä¸€IDçš„åº“
+import uuid
 from orm import Model, StringField, BooleanField, FloatField, TextField
 
+
+# è¿™ä¸ªå‡½æ•°çš„ä½œç”¨æ˜¯ç”Ÿæˆä¸€ä¸ªåŸºäºæ—¶é—´çš„ç‹¬ä¸€æ— äºŒçš„idï¼Œæ¥ä½œä¸ºæ•°æ®åº“è¡¨ä¸­æ¯ä¸€è¡Œçš„ä¸»é”®
 def next_id():
-    #¿´±ğµÄĞ¡»ï°éµÄ½âÊÍËµuuid4()ÊÇÓÃÀ´Éú³ÉËæ»úÊıµÄ£¬ÎÒÒ²ÊÇÀÁµÄÇóÖ¤ÁË£¬Õâ±ß»áÓÃ¾ÍĞĞÁË
-    #time.time()¾ÍÊÇ·µ»Øµ±Ç°Ê±¼ä´Á
-    #Õâ¸öº¯ÊıµÄ×÷ÓÃ¾ÍÊÇÉú³ÉÒ»¸öºÍµ±Ç°Ê±¼äÓĞ¹ØµÄ¶ÀÒ»ÎŞ¶şµÄid£¬À´×öÎªÊı¾İ¿â±íÖĞÃ¿Ò»ĞĞµÄÖ÷¼ü
-    return '%015d%s000' % (int(time.time() * 1000), uuid.uuid4().hex)
+    # time.time() è¿”å›å½“å‰æ—¶é—´çš„æ—¶é—´æˆ³(ç›¸å¯¹äº1970.1.1 00:00:00ä»¥ç§’è®¡ç®—çš„åç§»é‡)
+    # uuid4()â€”â€”ç”±ä¼ªéšæœºæ•°å¾—åˆ°ï¼Œæœ‰ä¸€å®šçš„é‡å¤æ¦‚ç‡ï¼Œè¯¥æ¦‚ç‡å¯ä»¥è®¡ç®—å‡ºæ¥ã€‚
+    return "%015d%s000" % (int(time.time()*1000), uuid.uuid4().hex)
 
+
+# è¿™æ˜¯ä¸€ä¸ªç”¨æˆ·åçš„è¡¨
 class User(Model):
-    __table__ = 'users'				#¶¨Òå±íÃû
+    __table__ = "users"
 
-    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')#¶¨ÒåidÎªÖ÷¼ü£¬µ÷ÓÃnext_id·½·¨ºó»ñµÃÄ¬ÈÏÖµ
-    email = StringField(ddl='varchar(50)')	#ÓÊÏä
-    passwd = StringField(ddl='varchar(50)')	#ÃÜÂë
-    admin = BooleanField()			#¹ÜÀíÔ±Éí·İ£¬ÖµÎª1±íÊ¾¸ÃÓÃ»§Îª¹ÜÀíÔ±£¬ÖµÎª0±íÊ¾¸ÃÓÃ»§²»ÊÇ¹ÜÀíÔ±
-    name = StringField(ddl='varchar(50)')	#Ãû×Ö
-    image = StringField(ddl='varchar(500)')	#Ó¦¸ÃÊÇÍ·Ïñ°É
-    created_at = FloatField(default=time.time)	#´´½¨Ê±¼äÄ¬ÈÏÎªµ±Ç°Ê±¼ä£¬Ò²ÊÇÒªµ÷ÓÃtime.time·½·¨ºó»ñµÃ
+    id = StringField(primary_key=True, default=next_id(), ddl="varchar(50)")
+    email = StringField(ddl="varchar(50)")
+    passwd = StringField(ddl="varchar(50)")
+    admin = BooleanField()  # ç®¡ç†å‘˜ï¼ŒTrueè¡¨ç¤ºè¯¥ç”¨æˆ·æ˜¯ç®¡ç†å‘˜ï¼Œå¦åˆ™ä¸æ˜¯
+    name = StringField(ddl="varchar(50)")
+    image = StringField(ddl="varchar(500)")  # å¤´åƒ
+    created_at = FloatField(default=time.time)  # åˆ›å»ºæ—¶é—´é»˜è®¤æ˜¯ä¸ºå½“å‰æ—¶é—´
 
+# è¿™æ˜¯ä¸€ä¸ªåšå®¢çš„è¡¨
 class Blog(Model):
-    __table__ = 'blogs'
-    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
-    user_id = StringField(ddl='varchar(50)')	#×÷Õßid
-    user_name = StringField(ddl='varchar(50)')	#×÷ÕßÃû
-    user_image = StringField(ddl='varchar(500)')#×÷ÕßÉÏ´«µÄÍ¼Æ¬
-    name = StringField(ddl='varchar(50)')	#ÎÄÕÂÃû
-    summary = StringField(ddl='varchar(200)')	#ÎÄÕÂ¸ÅÒª
-    content = TextField()			#ÎÄÕÂÕıÎÄ
+    __table__ = "blogs"
+
+    id = StringField(primary_key=True, default=next_id())
+    user_id = StringField(ddl="varchar(50)")  # ä½œè€…id
+    user_name = StringField(ddl="varchar(50)")  # ä½œè€…å
+    user_image = StringField(ddl="varchar(500)")  # ä½œè€…ä¸Šä¼ çš„å›¾ç‰‡
+    name = StringField(ddl="varchar(50)")  # æ–‡ç« å
+    summary = StringField(ddl="varchar(200)")  # æ–‡ç« æ¦‚è¦
+    content = TextField()  # æ–‡ç« æ­£æ–‡
     created_at = FloatField(default=time.time)
 
+# è¿™æ˜¯ä¸€ä¸ªè¯„è®ºçš„è¡¨
 class Comment(Model):
-    __table__ = 'comments'
-    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
-    blog_id = StringField(ddl='varchar(50)')	#²©¿Íid
-    user_id = StringField(ddl='varchar(50)')	#ÆÀÂÛÕßid
-    user_name = StringField(ddl='varchar(50)')	#ÆÀÂÛÕßÃû×Ö
-    user_image = StringField(ddl='varchar(500)')#ÆÀÂÛÕßÉÏ´«µÄÍ¼Æ¬
-    content = TextField()			#ÆÀÂÛÄÚÈİ
-created_at = FloatField(default=time.time)
+    __table__ = "comments"
+    id = StringField(primary_key=True, default=next_id())
+    blog_id = StringField(ddl="varchar(50)")  # åšå®¢id
+    user_id = StringField(ddl="varchar(50)")  # è¯„è®ºè€…id
+    user_name = StringField(ddl="varchar(50)")  # è¯„è®ºè€…åå­—
+    user_image = StringField(ddl="varchar(500")  # è¯„è®ºè€…ä¸Šä¼ çš„å›¾ç‰‡
+    content = TextField()
+    created_at = FloatField(default=time.time)
+
+
