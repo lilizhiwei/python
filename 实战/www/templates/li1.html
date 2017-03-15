@@ -1,0 +1,20 @@
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language =javascript > 
+    var curIndex=0; 
+    var timeInterval=5000; //时间间隔 单位毫秒 
+    var arr=new Array("http://www.amuker.com/content/templates/J2/images/randoms/23.jpg","http://www.amuker.com/content/templates/J2/images/randoms/11.jpg"); //个数自定义
+    setInterval(changeImg,timeInterval); 
+    function changeImg() { 
+        var obj=document.getElementById("showpic"); 
+        if (curIndex==arr.length-1) { 
+            curIndex=0; 
+        } else { 
+            curIndex+=1; 
+        } 
+        obj.src="image/"+arr[curIndex]; //注意image是文件夹奥
+    } 
+    </script> 
+    <img src="http://www.amuker.com/content/templates/J2/images/randoms/23.jpg" width="427" height="219" id="showpic" /> 
+    <img src="http://www.amuker.com/content/templates/J2/images/randoms/11.jpg" width="427" height="219" id="showpic" />  
+
+    //注意image是文件夹奥，需要创建的，图片放在里边，对应上边的个数和名称

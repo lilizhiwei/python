@@ -4,14 +4,75 @@
 
 {% block beforehead %}
 
-<script>
-</script>
-
 {% endblock %}
 
-{% block content %}
-
+{% block content %} 
+	<style type="text/css">
+			.uk-width-medium-1-4{
+				background-color="green"
+			}
+			#demo {background:#FFF;overflow:hidden;border:1px dashed #CCC;width:920px;}
+			#demo img {border:3px solid #F2F2F2;height:200px;}
+			#indemo {float:left;width:800%;}
+			#demo1 {float:left;}
+			#demo2 {float:left;}
+	</style>
+	<div class="uk-width-medium-1-4">
+    	
+        <div class="uk-panel uk-panel-header">
+        	<div>
+        		<img src="http://tvax2.sinaimg.cn/crop.0.0.996.996.180/005SDDO2ly8fdi5vkdomej30ro0ro40m.jpg"/>
+            </div>
+            <h3 >只要朝着一个方向努力，一切都会变得得心应手。</h3>
+            <h2>友情链接</h2>
+            <ul class="uk-list uk-list-line">
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://user.qzone.qq.com/1548790965?ptlang=2052&source=namecardhoverqzone">我的空间</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="http://weibo.com/u/5388034114?is_all=1">我的微博</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://github.com/lilizhiwei">我的github</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://www.processon.com/u/576c8902e4b0c173b802ab40/profile">我的思维脑图</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://www.processon.com/view/584eb7c7e4b031ce5459e95c">我的学习计划</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://lilizhiwei.github.io/test-page/%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/index.html">我的网页实战</a></h3></li>
+                <li><h3><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://lilizhiwei.github.io/test-page/%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/shizhan.html">智力小测试</a></h3></li>
+                <li></li>
+            </ul>
+            
+        </div>
+    </div>
+    
     <div class="uk-width-medium-3-4">
+		<div id="demo">
+			<div id="indemo">
+			<div id="demo1">
+			<a href="http://www.amuker.com/"><img src="http://a4.qpic.cn/psb?/V10jkfNe3i2DS5/.WLu3Z1fhrojEckTw4RdnkfJGrkrpR2Kl6CiZjt2kHA!/m/dB8BAAAAAAAA&bo=OATKAjgEygIFCSo!&rf=photolist" border="0" /></a>
+			<a href="http://www.amuker.com/"><img src="http://a4.qpic.cn/psb?/V10jkfNe3i2DS5/WPB02*PQKXk0YFhWvxlavZM*GvH4bS21hlZfoyAMKZ4!/m/dK8AAAAAAAAA&bo=jQcABUATwAwFCTo!&rf=photolist" border="0" /></a>
+			<a href="http://www.amuker.com/"><img src="http://a1.qpic.cn/psb?/V10jkfNe3i2DS5/Wi6o6fDi8IoAH4y.mgbNR*t4hx4clFuV.ZCOPUDBMCw!/m/dCABAAAAAAAA&bo=jQcABUATwAwFCTo!&rf=photolist" border="0" /></a>
+			<a href="http://www.amuker.com/"><img src="http://a1.qpic.cn/psb?/V10jkfNe3i2DS5/ScG5.kzKAFyrG03VfIMPdy*qaczbwczQAcEKfSeZ0CM!/m/dCABAAAAAAAA&bo=5Aj*BOQI*wQFByQ!&rf=photolist" border="0" /></a>
+			<a href="http://www.amuker.com/"><img src="http://a1.qpic.cn/psb?/V10jkfNe3i2DS5/JPbG*unoRuEmvbwClWBduGR7ZY4fyvi0bHId6r4Xwk8!/b/dK4AAAAAAAAA&bo=5Aj*BOQI*wQFACM!&rf=viewer_4" border="0" /></a>
+			<a href="http://www.amuker.com/"><img src="http://a3.qpic.cn/psb?/V10jkfNe3i2DS5/cWppQZr9THuL20GtX9i2ABVjtmO388dsfMxvUJ60KQE!/b/dB8BAAAAAAAA&bo=5Aj*BOQI*wQFACM!&rf=viewer_4" border="0" /></a>
+			
+			</div>
+			<div id="demo2"></div>
+			</div>
+		</div>
+	<script>
+		<!--
+		var speed=10;
+		var tab=document.getElementById("demo");
+		var tab1=document.getElementById("demo1");
+		var tab2=document.getElementById("demo2");
+		tab2.innerHTML=tab1.innerHTML;
+		function Marquee(){
+		if(tab2.offsetWidth-tab.scrollLeft<=0)
+		tab.scrollLeft-=tab1.offsetWidth
+		else{
+		tab.scrollLeft++;
+		}
+		}
+		var MyMar=setInterval(Marquee,speed);
+		tab.onmouseover=function() {clearInterval(MyMar)};
+		tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+		-->
+	</script>
     {% for blog in blogs %}
         <article class="uk-article">
             <h2><a href="/blog/{{ blog.id }}">{{ blog.name }}</a></h2>
@@ -23,15 +84,7 @@
     {% endfor %}
     {{ pagination('/?page=', page) }}
     </div>
-
-    <div class="uk-width-medium-1-4">
-        <div class="uk-panel uk-panel-header">
-            <h3 class="uk-panel-title">友情链接</h3>
-            <ul class="uk-list uk-list-line">
-                <li><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000">Python教程 - 廖雪峰的官方网站</a></li>
-                <li><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://github.com/ReedSun/Preeminent">源</a></li>
-            </ul>
-        </div>
-    </div>
+	
+    
 
 {% endblock %}
