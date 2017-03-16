@@ -26,7 +26,7 @@ _COOKIE_KEY = configs.session.secret  # cookie密钥，作为加密cookie的原�
 # 验证用户身份
 # 如果没有用户或用户没有管理员属性，报错
 def check_admin(request):
-    if request.__user__ is None or request.__user__.admin:
+    if request.__user__ is None or not request.__user__.admin:
         raise APIPermissionError()
 
 
