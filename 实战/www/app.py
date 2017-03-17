@@ -1,5 +1,3 @@
-# logging模块定义了一些函数和模块，可以帮助我们对一个应用程序或库实现一个灵活的事件日志处理系统
-# logging模块可以纪录错误信息，并在错误信息记录完后继续执行
 import logging
 # 设置logging的默认level为INFO
 # 日志级别大小关系为：CRITICAL > ERROR > WARNING > INFO > DEBUG > NOTSET
