@@ -7,7 +7,7 @@ async def test(loop):
 
     u=User(name='test20',email='test20@test.com',passwd='test',image='about:blank')
 
-    await u.save()
+    await u.save() 
 
 if __name__ == '__main__':
 

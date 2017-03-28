@@ -1,0 +1,7 @@
+[GFX1-]: PossiblyBrokenSurfaceSharing_UnexpectedAMDGPU
+1490320461837	Marionette	INFO	Listening on port 54151
+1490320463300	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: PossiblyBrokenSurfaceSharing_UnexpectedAMDGPU
+JavaScript warning: http://tb.53kf.com/code/code/10111642/3, line 376: unreachable code after return statement
+JavaScript warning: http://tb.53kf.com/code/code/10111642/3, line 383: unreachable code after return statement
+[Child 6644] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
